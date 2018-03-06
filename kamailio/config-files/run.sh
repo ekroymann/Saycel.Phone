@@ -13,4 +13,4 @@ done
 kamdbctl create <<< $MYSQL_ROOT_PASSWORD
 ./permissions.sh
 
-/usr/sbin/kamailio -P /var/run/kamailio/kamailio.pid -f /etc/kamailio/kamailio.cfg -D -E -m 64 -M 8 -u kamailio -g kamailio
+/usr/sbin/kamailio -P /var/run/kamailio/kamailio.pid -f /etc/kamailio/kamailio.cfg -DD -E -m 64 -M 8 -u kamailio -g kamailio

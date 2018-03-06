@@ -29,10 +29,10 @@ services:
     volumes:
       - ./certificates:/certificates
     ports:
-      - "5060:5060"
-      - "5061:5061"
-      - "880:880"
-      - "8443:8443"
+      - "0.0.0.0:5060:5060"
+      - "0.0.0.0:5061:5061/tcp"
+      - "0.0.0.0:880:880/tcp"
+      - "0.0.0.0:8443:8443/tcp"
     links:
       - mysql
       - rtpengine
@@ -41,10 +41,14 @@ services:
   rtpengine:
     build: ./rtpengine
     ports:
-      - "30000-31000:30000-31000/udp"
+      - "2223"
+      - "30000-30010:30000-30010/udp"
 
   webphone:
     build: ./webphone
+    environment:
+      - MIN_PORT
+      - MAX_PORT
     ports:
       - "80:80"
       - "443:443"
@@ -60,3 +64,7 @@ services:
       - PUSH_PRIVATE
       - PUSH_PORT
       - PUSH_SECRET
+    ports:
+      - "8080:3000"
+    volumes:
+      - ./certificates:/certificates

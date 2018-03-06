@@ -1,6 +1,6 @@
 FROM debian:8.0
 
-ARG VERSION=alpha0.1.0-180212
+ARG VERSION=dev0.2.0-7a557e7-180305
 ENV	DOMAIN rhizortc.specialstories.org
 
 # Package Install
